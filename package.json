@@ -19,6 +19,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.11",
     "@tailwindcss/vite": "^4.1.11",
+    "@types/node": "^24.0.13",
     "autoprefixer": "^10.4.21",
     "postcss-lit": "^1.2.0",
     "stylelint": "^16.21.1",

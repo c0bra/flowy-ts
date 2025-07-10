@@ -5,6 +5,12 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [tailwindcss(), tailwindAtProperties()],
+  resolve: {
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@shared': path.resolve(__dirname, 'src/components/shared'),
+    },
+  },
   build: {
     lib: {
       entry: 'src/index.ts',
