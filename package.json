@@ -1,0 +1,26 @@
+{
+  "name": "flowy",
+  "author": {
+    "name": "Brian Hann"
+  },
+  "license": "AGPL-3.0-only",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:es2016": "vite build --config vite.config.es2016.ts",
+    "build:es2022": "vite build --config vite.config.ts",
+    "build": "tsc && npm run build:es2016 && npm run build:es2022",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lit": "^3.3.0"
+  },
+  "devDependencies": {
+    "postcss-lit": "^1.2.0",
+    "stylelint": "^16.21.1",
+    "stylelint-config-standard": "^38.0.0",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4"
+  }
+}
