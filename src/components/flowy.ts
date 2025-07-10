@@ -7,10 +7,14 @@ import TailwindElement from "@shared/tailwind.element";
 export default class Flowy extends TailwindElement {
   render() {
     return html`
-      <div>
-        <h1 class="text-4xl">Flowy Component</h1>
-        <p>This is a simple Flowy component built with Lit.</p>
-        <slot></slot>
+      <div class="relative w-full h-screen grid grid-rows-[auto_1fr]">
+        <flowy-header></flowy-header>
+
+        <div class="grid grid-cols-[280px_1fr_320px]">
+          <flowy-left-sidebar></flowy-left-sidebar>
+          <flowy-canvas></flowy-canvas>
+          <flowy-right-sidebar></flowy-right-sidebar>
+        </div>
       </div>
    `
   }

@@ -6,6 +6,9 @@ import litLogo from './assets/lit.svg'
 import viteLogo from '/vite.svg'
 
 export { default as Flowy } from './components/flowy.ts'
+export { default as FlowyHeader } from './components/flowy-header.ts'
+export { default as FlowyLeftSidebar } from './components/flowy-left-sidebar.ts'
+export { default as FlowyRightSidebar } from './components/flowy-right-sidebar.ts'
 export { default as FlowyCanvas } from './components/flowy-canvas.ts'
 
 /**
