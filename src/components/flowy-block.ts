@@ -64,7 +64,7 @@ export class FlowyBlock extends LitElement {
       'application/json',
       JSON.stringify({ label: this.label, color: this.color })
     )
-    e.dataTransfer?.effectAllowed = 'move'
+    if (e.dataTransfer) e.dataTransfer.effectAllowed = 'move'
 
     this.dispatchEvent(
       new CustomEvent('block-dragstart', {
