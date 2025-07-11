@@ -1,14 +1,1 @@
 @import "tailwindcss";
-/* @layer theme, base, components, utilities;
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/preflight.css" layer(base);
-@import "tailwindcss/utilities.css" layer(utilities); */
-
-:root {
-  --flowy-border-color: var(--color-zinc-100);
-  --foo-bar-baz: red;
-}
-
-@theme inline {
-  --color-flowy-border: var(--color-zinc-200);
-}

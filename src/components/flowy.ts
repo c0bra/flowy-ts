@@ -1,10 +1,20 @@
-import { html } from 'lit'
+import { html, css } from 'lit'
 import { customElement } from 'lit/decorators.js'
 
-import TailwindElement from "./shared/tailwind.element";
+import TailwindElement from "@shared/tailwind.element";
 
 @customElement('flowy-component')
 export default class Flowy extends TailwindElement {
+  static styles = [
+    super.styles,
+    css`
+      /* Define custom variables for all Flowy components here */
+      :host {
+        --flowy-border-color: var(--color-zinc-200);
+      }
+    `
+  ]
+
   render() {
     return html`
       <div class="relative w-full h-screen grid grid-rows-[auto_1fr]">
