@@ -1,6 +1,5 @@
 import { html, css } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { classMap } from 'lit/directives/class-map.js';
 
 import TailwindElement from './shared/tailwind.element'
 import { type FlowyTriggerProps } from './flowy-trigger';
@@ -42,15 +41,11 @@ export default class FlowyLeftSidebar extends TailwindElement {
         <div class="flex gap-4 mb-4">
           ${this.tabs.map(tab => html`
             <div
-              class="cursor-pointer text-gray-700"
-              @click=${() => this._activeTab = tab}
-              class=${classMap({
-      'p-2': true,
-      'cursor-pointer': true,
-      'border-b-4': true,
-      'border-blue-500': this._activeTab === tab,
-      'border-none': this._activeTab !== tab,
-    })}>
+              class=${`
+                p-2 text-sm cursor-pointer border-b-4
+                ${this._activeTab === tab ? 'border-blue-500' : 'border-none text-gray-500 hover:text-gray-400'}
+              `}
+              @click=${() => this._activeTab = tab}>
               ${tab}
             </div>
           `)}
