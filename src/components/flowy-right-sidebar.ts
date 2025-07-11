@@ -1,6 +1,6 @@
 import { html, css } from 'lit'
 import { customElement } from 'lit/decorators.js'
-import TailwindElement from '@shared/tailwind.element'
+import TailwindElement from './shared/tailwind.element'
 
 @customElement('flowy-right-sidebar')
 export default class Flowy extends TailwindElement {

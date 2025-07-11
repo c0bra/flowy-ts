@@ -8,5 +8,7 @@ const cssText = Array.from(sheet.cssRules)
   .map(rule => rule.cssText)
   .join('\n');
 
+// console.log(cssText)
+
 export const tailwind = css`${unsafeCSS(cssText)}`;
 

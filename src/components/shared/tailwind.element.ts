@@ -1,6 +1,6 @@
-import { CSSResult, LitElement, type CSSResultGroup } from "lit";
-import { tailwind } from '../../tailwind/tailwind';
+import { LitElement, type CSSResultGroup } from "lit";
+import { tailwind } from './tailwind';
 
 export default class TailwindElement extends LitElement {
-  static styles: CSSResultGroup | CSSResult = tailwind;
+  static styles = tailwind as CSSResultGroup;
 }
