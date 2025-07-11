@@ -7,11 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Flowy</title>
   <link rel="stylesheet" href="./src/index.css" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <script type="module" src="/src/index.ts"></script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
+  <style>
+    flowy-component {
+      /* Override canvas background */
+      /* --flowy-canvas-bg: var(--color-zinc-100); */
+    }
+  </style>
   <flowy-component></flowy-component>
 </body>
 

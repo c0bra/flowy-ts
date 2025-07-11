@@ -1,4 +1,12 @@
+import { css, unsafeCSS } from 'lit';
 import styles from './tailwind-styles-root.css?inline';
 
-export const tailwind = new CSSStyleSheet();
-tailwind.replaceSync(styles);
+const sheet = new CSSStyleSheet();
+sheet.replaceSync(styles);
+
+const cssText = Array.from(sheet.cssRules)
+  .map(rule => rule.cssText)
+  .join('\n');
+
+export const tailwind = css`${unsafeCSS(cssText)}`;
+

@@ -16,10 +16,10 @@ export default class FlowyHeader extends TailwindElement {
         </div>
 
         <div>
-          <button class="border border-gray-200 text-gray-500 px-4 py-2 rounded hover:bg-gray-300 pointer">
+          <button class="border border-gray-200 text-gray-500 px-4 py-2 rounded hover:bg-gray-300 cursor-pointer">
             Settings
           </button>
-          <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 pointer">
+          <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer">
             Action
           </button>
         </div>
