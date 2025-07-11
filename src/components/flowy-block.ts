@@ -1,20 +1,27 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
+export interface FlowyBlockProps {
+  name: string;
+  description: string;
+  icon: string;
+}
+
 /**
  * A draggable workflow block.
  *
  * Usage:
- *   <flowy-block label="Start"></flowy-block>
+ *   <flowy-block name="Start"></flowy-block>
  *
  * Emits custom events when dragging starts / ends:
  *   - block-dragstart
  *   - block-dragend
  */
 @customElement('flowy-block')
-export class FlowyBlock extends LitElement {
-  /** Text shown inside the block. */
-  @property({ type: String }) label = 'Block'
+export default class FlowyBlock extends LitElement {
+  @property({ type: String }) name = 'Flowy Block'
+  @property({ type: String }) description = 'This is a draggable block in the Flowy component'
+  @property({ type: String }) icon = '' // Optional icon class or URL
 
   /** Background color (CSS color string). */
   @property({ type: String }) color = '#4f46e5' // indigo-600
@@ -53,7 +60,7 @@ export class FlowyBlock extends LitElement {
         @dragstart=${this._onDragStart}
         @dragend=${this._onDragEnd}
       >
-        ${this.label}
+        ${this.name}
       </div>
     `
   }
@@ -62,13 +69,13 @@ export class FlowyBlock extends LitElement {
     (e.currentTarget as HTMLElement).classList.add('dragging')
     e.dataTransfer?.setData(
       'application/json',
-      JSON.stringify({ label: this.label, color: this.color })
+      JSON.stringify({ name: this.name, color: this.color })
     )
     if (e.dataTransfer) e.dataTransfer.effectAllowed = 'move'
 
     this.dispatchEvent(
       new CustomEvent('block-dragstart', {
-        detail: { label: this.label, color: this.color },
+        detail: { name: this.name, color: this.color },
         bubbles: true,
         composed: true,
       })
@@ -82,7 +89,7 @@ export class FlowyBlock extends LitElement {
 
     this.dispatchEvent(
       new CustomEvent('block-dragend', {
-        detail: { label: this.label, color: this.color },
+        detail: { name: this.name, color: this.color },
         bubbles: true,
         composed: true,
       })

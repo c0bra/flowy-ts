@@ -1,14 +1,80 @@
-import { html } from 'lit'
-import { customElement } from 'lit/decorators.js'
+import { html, css } from 'lit'
+import { customElement, property } from 'lit/decorators.js'
+import { classMap } from 'lit/directives/class-map.js';
+
 import TailwindElement from './shared/tailwind.element'
+import { type FlowyTriggerProps } from './flowy-trigger';
+import { type FlowyActionProps } from './flowy-action';
 
 @customElement('flowy-left-sidebar')
-export default class Flowy extends TailwindElement {
+export default class FlowyLeftSidebar extends TailwindElement {
+  @property({ type: Array }) triggers: FlowyTriggerProps[] = []
+  @property({ type: Array }) actions: FlowyActionProps[] = []
+
+  @property({ state: true }) private _activeTab: string = 'Triggers'
+
+  private tabs = [
+    'Triggers',
+    'Actions'
+  ]
+
+  static styles = [
+    super.styles,
+    css`
+      :host {
+        
+      }
+
+      .tab {
+        
+      }
+
+      .tab.active {
+
+      }
+    `
+  ]
+
   render() {
     return html`
       <div class="px-8 py-6 inline-flex gap-8 flex-col border-r border-gray-200 h-full w-full">
-        <h2 class="text-lg font-bold mb-8">Blocks</h2>
-
+        <h2 class="text-lg font-bold">Blocks</h2>
+        <div class="flex gap-4 mb-4">
+          ${this.tabs.map(tab => html`
+            <div
+              class="cursor-pointer text-gray-700"
+              @click=${() => this._activeTab = tab}
+              class=${classMap({
+      'p-2': true,
+      'cursor-pointer': true,
+      'border-b-4': true,
+      'border-blue-500': this._activeTab === tab,
+      'border-none': this._activeTab !== tab,
+    })}>
+              ${tab}
+            </div>
+          `)}
+          </button>
+        </div>
+        <div>
+            ${this._activeTab === 'Triggers'
+        ? html`
+                  <ul>
+                    ${this.triggers.map(trigger => html`
+                      <li class="mb-2 p-2 border rounded">${trigger.name}</li>
+                    `)}
+                  </ul>
+                `
+        : html`
+                  <ul>
+                    ${this.actions.map(action => html`
+                      <li class="mb-2 p-2 border rounded">${action.name}</li>
+                    `)}
+                  </ul>
+                `
+      }
+          </div>
+        </div>
       </div>
    `
   }

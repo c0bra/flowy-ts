@@ -10,6 +10,14 @@ export default class FlowyHeader extends TailwindElement {
       .flowy-header {
         border-color: var(--flowy-border-color);
       }
+
+      button.primary {
+        background-color: var(--flowy-active-color);
+      }
+
+      button.primary:hover {
+        background-color: oklch(from var(--flowy-active-color) l c h / calc(alpha - 0.3))
+      }
     `
   ]
 
@@ -28,7 +36,7 @@ export default class FlowyHeader extends TailwindElement {
           <button class="border border-flowy-border text-gray-500 px-4 py-2 rounded hover:bg-gray-300 cursor-pointer">
             Settings
           </button>
-          <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer">
+          <button class="primary text-white px-4 py-2 rounded cursor-pointer">
             Action
           </button>
         </div>

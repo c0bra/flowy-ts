@@ -22,6 +22,21 @@
     }
   </style>
   <flowy-component></flowy-component>
+
+  <script>
+    document.querySelector('flowy-component').triggers = [
+      {
+        name: 'Start',
+        description: 'This is the starting point of the workflow',
+        icon: 'icon-start'
+      },
+      {
+        name: 'End',
+        description: 'This is the endpoint of the workflow',
+        icon: 'icon-end'
+      }
+    ]
+  </script>
 </body>
 
 </html>
